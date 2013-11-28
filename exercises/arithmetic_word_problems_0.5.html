@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html data-require="math word-problems">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Addition and subtraction word problems (within 20)</title>
+    <script src="../khan-exercise.js"></script>
+</head>
+<body>
+    <div class="exercise">
+        <div class="vars">
+            <var id="A">randRange( 1, 10 )</var>
+            <var id="B">randRange( 1, 10 )</var>
+            <!-- Simple phonics for 1st graders -->
+            <var id="girlNames">[ "Anne", "Britt", "Cass", "Deb", "Eve", "Fran", "Jill", "Liz", "Meg", "Pam" ]</var>
+            <var id="boyNames">[ "Al", "Bob", "Dan", "Jack", "Matt", "Pete", "Sal" ]</var>
+            <var id="pronoun">randFromArray( [ "she", "he" ] )</var>
+            <var id="person">( pronoun === "she" 
+                ? randFromArray( girlNames )
+                : randFromArray( boyNames )
+                ) </var>
+            <var id="object">randFromArray( [ "bag", "box", "can", "jar", "key", "log", "map", "mop", "net", "pen", "pot", "rock"  ] )</var>
+            <var id="lost">randFromArray( [ "gave away", "lost", "put away"  ] )</var>
+            <var id="got">randFromArray( [ "got", "took" ] )</var>
+        </div>
+		
+        <div class="problems">
+            <div id="addition-missing-sum">
+                <p class="problem">
+                    <span><var>person</var> had <var>A</var> <var>plural( object, A )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>got</var> <var>B</var> more.</span>
+                </p>
+                <p class="question">
+                    How many <var>plural( object )</var> does <var>person</var> have now?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>A + B</var></span> <var>plural( object, A + B )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>got</var> more</u> <var>plural( object )</var>, so use <b>addition</b>.
+                    </p>
+                    <p>
+                        <var>A</var> <var>plural( object, A )</var> <code> + </code> the <var>B</var> <var>pronoun</var> <var>got</var>
+                    </p>
+                    <p>
+                        <code><var>A</var> + <var>B</var> = <var>A + B</var></code>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> has <var>A + B</var> <var>plural( object, A + B )</var>.
+                    </p>
+                </div>
+            </div>
+            <div id="addition-missing-first-addend">
+                <p class="problem">
+                    <span><var>person</var> had <span data-if="isSingular(A)">a</span><span data-else="">some</span> <var>plural( object, A )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>got</var> <var>B</var> more, and now has <var>A + B</var>.</span>
+                </p>
+                <p class="question">
+                    How many <var>plural( object )</var> did <var>person</var> start with?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>A</var></span> <var>plural( object, A )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>got</var> more</u>, so <var>pronoun</var> <b>added</b> <var>plural( object )</var>.
+                    </p>
+                    <p>
+                        <code> ?\ </code> <var>plural( object, A )</var> <code> + </code> <var>B</var> <var>plural( object, B )</var> <code> = </code> <var>A + B</var> <var>plural( object )</var>
+                    </p>
+                    <p>
+                        Use <b>subtraction</b> to find the missing <var>plural( object, A )</var>.
+                    </p>
+                    <p>
+                        <code><var>A + B</var> - <var>B</var> = <var>A</var></code>
+                    </p>
+                    <p>
+                        <var>A</var> <var>plural( object, A )</var> <code> + </code> <var>B</var> <var>plural( object, B )</var> <code> = </code> <var>A + B</var> <var>plural( object )</var>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> started with <var>A</var> <var>plural( object, A )</var>.
+                    </p>
+                </div>
+            </div>
+           <div id="addition-missing-second-addend">
+                <p class="problem">
+                    <span><var>person</var> had <var>A</var> <var>plural( object, A )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>got</var> more, and now has <var>A + B</var>.</span>
+                </p>
+                <p class="question">
+                    How many <var>plural( object )</var> did <var>person</var> get?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>B</var></span> <var>plural( object, B )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>got</var> more</u>, so <var>pronoun</var> <b>added</b> <var>plural( object )</var>.
+                    </p>
+                    <p>
+                        <var>A</var> <var>plural( object, A )</var> <code> +\ ?\ </code> <var>plural( object, B )</var> <code> = </code> <var>A + B</var> <var>plural( object )</var>
+                    </p>
+                    <p>
+                        Use <b>subtraction</b> to find the missing <var>plural( object, B )</var>.
+                    </p>
+                    <p>
+                        <code><var>A + B</var> - <var>A</var> = <var>B</var></code>
+                    </p>
+                    <p>
+                        <var>A</var> <var>plural( object, A )</var> <code> + </code> <var>B</var> <var>plural( object, B )</var> <code> = </code> <var>A + B</var> <var>plural( object )</var>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> <var>got</var> <var>B</var> <var>plural( object, B )</var>.
+                    </p>
+                </div>
+            </div>
+            <div id="subtraction-missing-difference">
+                <p class="problem">
+                    <span><var>person</var> had <var>A + B</var> <var>plural( object, A + B )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>lost</var> <var>A</var>.</span>
+                </p>
+                <p class="question">
+                    How many <var>plural( object )</var> does <var>person</var> have left?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>B</var></span> <var>plural( object, B )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>lost</var></u> <var>plural( object )</var>, so use <b>subtraction</b>.
+                    </p>
+                    <p>
+                        <var>A + B</var> <var>plural( object, A + B )</var> <code> - </code> the <var>A</var> <var>pronoun</var> <var>lost</var>
+                    </p>
+                    <p>
+                        <code><var>A + B</var> - <var>A</var> = <var>B</var></code>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> has <var>B</var> <var>plural( object, B )</var> left.
+                    </p>
+                </div>
+            </div>
+            <div id="subtraction-missing-minuend">
+                <p class="problem">
+                    <span><var>person</var> had some <var>plural( object, A + B )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>lost</var> <var>A</var>, and now has <var>B</var>.</span>
+                </p>
+                <p class="question">
+                    How many <var>plural( object, A + B )</var> did <var>person</var> start with?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>A + B</var></span> <var>plural( object, A + B )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>lost</var></u> <var>plural( object )</var>, so they were <b>subtracted</b>.
+                    </p>
+                    <p>
+                        <code> ?\ </code> <var>plural( object, A + B )</var> <code> - </code> <var>A</var> <var>plural( object, A )</var> <code> = </code> <var>B</var> <var>plural( object, B )</var>
+                    </p>
+                    <p>
+                        Use <b>addition</b> to find the total <var>plural( object, A + B )</var>.
+                    </p>
+                    <p>
+                        <code><var>A</var> + <var>B</var> = <var>A + B</var></code>
+                    </p>
+                    <p>
+                        <var>A + B</var> <var>plural( object, A + B )</var> <code> - </code> <var>A</var> <var>plural( object, A )</var> <code> = </code> <var>B</var> <var>plural( object, B )</var>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> started with <var>A + B</var> <var>plural( object, A + B )</var>.
+                    </p>
+                </div>
+            </div>
+            <div id="subtraction-missing-subtrahend">
+                <p class="problem">
+                    <span><var>person</var> had <var>A + B</var> <var>plural( object, A + B )</var>.</span>
+                    <span><var>capitalize( pronoun )</var> <var>lost</var> some, and now has <var>B</var>.</span>
+                </p>
+                <p class="question">
+                    <var>person</var> <var>lost</var> how many <var>plural( object, A )</var>?
+                </p>
+                <div class="solution" data-type="multiple">
+                    <span class="sol" data-forms="integer" style="padding-right: 5px"><var>A</var></span> <var>plural( object, A )</var>
+                </div>
+                <div class="hints">
+                    <p>
+                        <var>capitalize( pronoun )</var> <u><var>lost</var></u> <var>plural( object )</var>, so they were <b>subtracted</b>.
+                    </p>
+                    <p>
+                        <var>A + B</var> <var>plural( object, A + B )</var> <code> - </code> <code> ?\ </code> <var>plural( object, A )</var> <code> = </code> <var>B</var> <var>plural( object, B )</var>
+                    </p>
+                    <p>
+                        Use <b>subtraction</b> to find the <var>plural( object, A )</var> <var>pronoun</var> <var>lost</var>.
+                    </p>
+                    <p>
+                        <code><var>A + B</var> - <var>B</var> = <var>A</var></code>
+                    </p>
+                    <p>
+                        <var>A + B</var> <var>plural( object, A + B )</var> <code> - </code> <var>A</var> <var>plural( object, A )</var> <code> = </code> <var>B</var> <var>plural( object, B )</var>
+                    </p>
+                    <p>
+                        <var>capitalize( pronoun )</var> <var>lost</var> <var>A</var> <var>plural( object, A )</var>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
